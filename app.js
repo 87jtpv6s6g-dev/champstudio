@@ -1,7 +1,6 @@
 const SUPABASE_URL='https://cdeufzqwprgauyvrnmre.supabase.co';
 const FUNCTION_URL=`${SUPABASE_URL}/functions/v1/champ-submission`;
-const STORAGE_URL=`${SUPABASE_URL}/storage/v1/object/upload/sign/live-submissions`;
-const WHATSAPP_NUMBER='';
+const WHATSAPP_NUMBER='393793790421';
 
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -28,7 +27,7 @@ const audioConfig={
   after:{el:$('#audioAfter'),button:$('[data-player="after"] .play-btn'),state:$('[data-player="after"] .player-state')}
 };
 
-// Set these file paths when the two verified CHAMP before/after masters are available.
+// Inserire qui solo i due file CHAMP verificati del prima/dopo.
 const AUDIO_BEFORE='';
 const AUDIO_AFTER='';
 if(AUDIO_BEFORE){audioConfig.before.el.src=AUDIO_BEFORE;audioConfig.before.button.disabled=false}
@@ -89,9 +88,9 @@ form?.addEventListener('submit',async e=>{
       action:'finalize',applicationType:'percorso',entryPoint:'landing-v2',artistName:fd.get('artistName'),firstName:fd.get('firstName'),lastName:fd.get('lastName'),phone:fd.get('phone'),countryCode:'39',city:fd.get('city'),instagram:fd.get('instagram'),age:fd.get('age'),songUrl,uploadProof,currentMaterial:String(stage),developmentGoal:fd.get('developmentGoal'),sourceDetail:qsSource(),consentPrivacy:fd.get('consentPrivacy')==='on',consentContact:fd.get('consentContact')==='on'
     });
     form.hidden=true;$('#successPanel').hidden=false;
-    const text=encodeURIComponent(`Ciao CHAMP, ho appena inviato il mio brano dal sito. Vorrei raccontarvi qualcosa in più sul progetto.`);
+    const text=encodeURIComponent('Ciao CHAMP, ho appena inviato il mio brano dal sito. Vorrei raccontarvi qualcosa in più sul progetto.');
     const wa=$('#whatsappAfterSubmit');
-    wa.href=WHATSAPP_NUMBER?`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`:`https://wa.me/?text=${text}`;
+    wa.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
     $('#successPanel').scrollIntoView({behavior:'smooth',block:'center'});
   }catch(err){
     progress.textContent=errorMessage(err?.message);
