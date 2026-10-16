@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#080806" />
+  <meta name="description" content="CHAMP è un percorso di sviluppo artistico per rapper e artisti emergenti. Invia il tuo brano: lo ascoltiamo e valutiamo da dove partire." />
+  <title>CHAMP — Sviluppo artistico rap</title>
+  <link rel="preconnect" href="https://cdeufzqwprgauyvrnmre.supabase.co" crossorigin />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#top" aria-label="CHAMP, torna all'inizio">CHAMP</a>
+    <a class="header-cta js-open-form" href="#candidatura">Invia il tuo brano</a>
+  </header>
+
+  <main>
+    <section class="hero section-dark" aria-labelledby="hero-title">
+      <div class="hero-signal" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="hero-inner reveal">
+        <p class="eyebrow">RAP · ARTIST DEVELOPMENT</p>
+        <h1 id="hero-title">
+          <span>Vuoi farti conoscere</span>
+          <span>con la tua musica?</span>
+          <strong>Prima devi diventare<br />difficile da ignorare.</strong>
+        </h1>
+        <p class="hero-copy">Puoi avere talento, scrivere pezzi e iniziare a pubblicare. Ma se vuoi costruire davvero un pubblico, devi lavorare su quello che rende più forti le tue canzoni e più riconoscibile te come artista.</p>
+        <p class="hero-copy hero-copy-secondary">In CHAMP lavoriamo direttamente sui tuoi pezzi per sviluppare voce, flow, scrittura, ritornelli, identità e direzione artistica.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary js-open-form" href="#candidatura">Invia il tuo brano <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#prova">Ascolta la differenza <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="microcopy">Lo ascoltiamo gratuitamente e capiamo da dove parti.</p>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span>SCROLL</span><i></i></div>
+    </section>
+
+    <section class="attention section-light" id="problema" aria-labelledby="attention-title">
+      <div class="section-wrap split-intro reveal">
+        <p class="section-index">01 / ATTENZIONE</p>
+        <div>
+          <h2 id="attention-title">Pubblicare un pezzo<br />è solo l'inizio.</h2>
+          <p class="lead">Ogni giorno escono migliaia di nuovi brani. E tantissimi artisti stanno cercando la stessa cosa: <strong>essere ascoltati.</strong></p>
+        </div>
+      </div>
+
+      <div class="attention-path" aria-label="Da un ascolto alla costruzione di un pubblico">
+        <div class="attention-step reveal"><span>01</span><strong>ASCOLTO</strong><small>Ti scopre.</small></div>
+        <div class="attention-step reveal"><span>02</span><strong>ALTRO PEZZO</strong><small>Vuole capire di più.</small></div>
+        <div class="attention-step reveal"><span>03</span><strong>TI RICONOSCE</strong><small>Qualcosa resta.</small></div>
+        <div class="attention-step reveal"><span>04</span><strong>RITORNA</strong><small>Non riparti da zero.</small></div>
+      </div>
+
+      <div class="section-wrap argument reveal">
+        <p>Essere ascoltato una volta non significa essere stato scelto.</p>
+        <p>La differenza inizia quando una persona finisce il pezzo e ha voglia di capire chi sei: entra sul profilo, ascolta altro, comincia a ricordare la tua voce, il modo in cui scrivi o costruisci un ritornello.</p>
+        <p>Se ogni uscita ricomincia sempre dallo stesso punto, il problema non può essere ogni volta soltanto la promozione.</p>
+        <blockquote>Portare più persone sulla tua musica non sistema quello che ancora non funziona.<br /><strong>Lo fa semplicemente ascoltare a più persone.</strong></blockquote>
+        <p>Prima di aumentare la spinta, devi capire cosa deve diventare più forte quando quelle persone arrivano.</p>
+      </div>
+    </section>
+
+    <section class="proof section-dark" id="prova" aria-labelledby="proof-title">
+      <div class="section-wrap reveal">
+        <p class="section-index">02 / LA PROVA</p>
+        <h2 id="proof-title">Non è solo il pezzo a cambiare.<br /><strong>Cambia quello che l'artista sa fare.</strong></h2>
+        <p class="lead muted">Due brani diversi dello stesso artista. Il punto non è confrontare due mix: è sentire come cambiano le possibilità con cui costruisce la musica.</p>
+      </div>
+
+      <div class="proof-grid section-wrap">
+        <article class="audio-case audio-case-before reveal">
+          <div class="case-topline"><span>PRIMA</span><span class="case-duration" id="beforeDuration">0:40</span></div>
+          <h3>Brano iniziale</h3>
+          <div class="wave-player" data-player="before">
+            <button class="play-btn" type="button" aria-label="Riproduci il brano prima" disabled><span>▶</span></button>
+            <div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="player-state">Audio</span>
+            <audio id="audioBefore" preload="metadata"></audio>
+          </div>
+          <p>Va a tempo e chiude correttamente le frasi, ma mantiene quasi sempre lo stesso flow. Il timbro cambia poco, non ci sono parti melodiche e il beat viene seguito più che controllato. Il pezzo rimane lineare.</p>
+        </article>
+
+        <div class="proof-divider" aria-hidden="true"><span>CHAMP</span><i></i></div>
+
+        <article class="audio-case audio-case-after reveal">
+          <div class="case-topline"><span>DOPO IL PERCORSO</span><span class="case-duration" id="afterDuration">1:18</span></div>
+          <h3>Brano successivo</h3>
+          <div class="wave-player" data-player="after">
+            <button class="play-btn" type="button" aria-label="Riproduci il brano dopo" disabled><span>▶</span></button>
+            <div class="waveform waveform-after" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="player-state">Audio</span>
+            <audio id="audioAfter" preload="metadata"></audio>
+          </div>
+          <p>Gestisce il beat con più controllo, cambia flow nei punti giusti e usa il timbro in modi diversi. Inserisce parti melodiche e costruisce un pezzo più dinamico, con momenti che si distinguono tra loro.</p>
+        </article>
+      </div>
+
+      <div class="section-wrap proof-conclusion reveal">
+        <p>Non è successo semplicemente facendo un mix migliore.</p>
+        <h3>Sono aumentate le possibilità con cui riesce a costruire un pezzo.</h3>
+        <a class="btn btn-outline js-open-form" href="#candidatura">Vuoi capire su cosa lavorare nel tuo? <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="method section-gold" id="metodo" aria-labelledby="method-title">
+      <div class="section-wrap reveal">
+        <p class="section-index">03 / IL METODO</p>
+        <h2 id="method-title">Un pezzo forte non dipende<br />da una sola cosa.</h2>
+        <p class="lead">Puoi avere delle belle barre e una performance che non arriva. Una bella voce e usare sempre gli stessi flow. Tecnica, ma niente che una persona riconosca davvero come tuo.</p>
+        <p class="method-intro">Per questo in CHAMP lavoriamo su sei aree.</p>
+      </div>
+
+      <div class="method-list">
+        <article class="method-item reveal"><span>01</span><div><h3>Performance e voce</h3><p>Energia, intenzione, presenza e controllo mentre registri.</p></div></article>
+        <article class="method-item reveal"><span>02</span><div><h3>Flow e ritmo</h3><p>Entrate, pause, variazioni e modo in cui mantieni l'attenzione.</p></div></article>
+        <article class="method-item reveal"><span>03</span><div><h3>Scrittura e comunicazione</h3><p>Far arrivare meglio quello che vuoi dire senza perdere efficacia nel pezzo.</p></div></article>
+        <article class="method-item reveal"><span>04</span><div><h3>Ritornelli e melodie</h3><p>Costruire parti che rimangono e trovare soluzioni melodiche più forti.</p></div></article>
+        <article class="method-item reveal"><span>05</span><div><h3>Identità artistica</h3><p>Capire quali caratteristiche della tua musica possono iniziare ad essere riconosciute come tue.</p></div></article>
+        <article class="method-item reveal"><span>06</span><div><h3>Direzione artistica</h3><p>Capire quali scelte portare avanti e dare sempre più direzione al progetto.</p></div></article>
+      </div>
+
+      <div class="section-wrap method-close reveal">
+        <h3>Non devi migliorare tutto insieme.</h3>
+        <p>Devi capire cosa oggi ti sta limitando di più e lavorare da lì.</p>
+      </div>
+    </section>
+
+    <section class="path section-dark" id="percorso" aria-labelledby="path-title">
+      <div class="section-wrap reveal">
+        <p class="section-index">04 / IL PERCORSO</p>
+        <h2 id="path-title">4 sessioni al mese.<br /><strong>Per non ripartire da zero ogni volta.</strong></h2>
+        <p class="lead muted">Non vieni in studio per fare esercizi lontani dalla tua musica. Partiamo dai tuoi pezzi e lavoriamo direttamente lì.</p>
+      </div>
+
+      <div class="session-rail section-wrap">
+        <div class="rail-line" aria-hidden="true"><i></i></div>
+        <div class="session-copy reveal">
+          <p>Registriamo. Proviamo alternative. Cambiamo un flow quando non funziona. Cerchiamo una melodia diversa quando una parte non rimane. Lavoriamo sulla performance quando manca energia.</p>
+          <p>E capiamo quali scelte, invece, stanno iniziando a rappresentarti davvero.</p>
+          <blockquote>Così una sessione non serve soltanto a finire il pezzo che hai davanti.<br /><strong>Serve a farti arrivare più forte a quello successivo.</strong></blockquote>
+        </div>
+      </div>
+
+      <div class="offer-list section-wrap">
+        <article class="offer-item reveal"><span>01</span><div><h3>4 sessioni ogni mese</h3><p>Lavoro continuativo sui tuoi brani, senza ricominciare ogni volta da zero.</p></div></article>
+        <article class="offer-item reveal"><span>02</span><div><h3>Registrazione</h3><p>Costruiamo le take lavorando direttamente su performance, flow, interpretazione e scelte vocali.</p></div></article>
+        <article class="offer-item reveal"><span>03</span><div><h3>Mix &amp; master</h3><p>Portiamo i brani lavorati alla loro versione finale.</p></div></article>
+        <article class="offer-item reveal"><span>04</span><div><h3>Direzione artistica</h3><p>Capiamo cosa sta funzionando, cosa ti limita e quali caratteristiche vale la pena sviluppare.</p></div></article>
+        <article class="offer-item reveal"><span>05</span><div><h3>Strategia di pubblicazione</h3><p>Quando il pezzo è pronto, ragioniamo anche su come presentarlo e pubblicarlo.</p></div></article>
+      </div>
+    </section>
+
+    <section class="difference section-light" aria-labelledby="difference-title">
+      <div class="difference-stage section-wrap">
+        <p class="section-index reveal">05 / LA DIFFERENZA</p>
+        <h2 id="difference-title" class="difference-lines">
+          <span class="reveal">Finire il pezzo.</span>
+          <span class="reveal">Diventare più forte.</span>
+          <strong class="reveal">Non sono la stessa cosa.</strong>
+        </h2>
+        <div class="difference-copy reveal">
+          <p>Se vuoi soltanto entrare in studio, registrare e uscire con il file finito, uno studio può fare esattamente quel lavoro.</p>
+          <p>CHAMP nasce per qualcosa di diverso: capire perché una parte non funziona, provare una soluzione migliore, riconoscere quello che stai già facendo bene e portare tutto questo anche nella canzone successiva.</p>
+        </div>
+        <blockquote class="difference-quote reveal">
+          <span>Uno studio può aiutarti a finire il pezzo.</span>
+          <strong>CHAMP lavora per farti arrivare più forte a quello dopo.</strong>
+        </blockquote>
+        <p class="difference-last reveal">Perché se vuoi farti conoscere davvero, prima o poi la tua musica deve dare alle persone un motivo per ricordarsi di te.</p>
+      </div>
+    </section>
+
+    <section class="application section-dark" id="candidatura" aria-labelledby="application-title">
+      <div class="application-shell section-wrap">
+        <div class="application-copy reveal">
+          <p class="section-index">06 / IL PRIMO PASSO</p>
+          <h2 id="application-title">Se credi di avere qualcosa,<br /><strong>faccelo sentire.</strong></h2>
+          <p>Non importa se hai già pubblicato dieci pezzi o se quelli che hai scritto sono ancora nelle note del telefono.</p>
+          <p>Se stai già facendo musica e vuoi iniziare a lavorarci seriamente, partiamo da quello che stai facendo adesso.</p>
+          <div class="application-promise">
+            <span>01</span><p>Mandaci un pezzo, una demo o una registrazione.</p>
+            <span>02</span><p>La ascoltiamo e valutiamo da dove parti.</p>
+            <span>03</span><p>Se pensiamo che CHAMP possa aiutarti, ne parliamo.</p>
+          </div>
+        </div>
+
+        <form class="submission-form reveal" id="submissionForm" novalidate>
+          <div class="form-head">
+            <p>Invia il tuo brano</p>
+            <span>Ascolto iniziale gratuito</span>
+          </div>
+
+          <div class="field-row">
+            <label class="field"><span>Nome *</span><input name="firstName" autocomplete="given-name" required /></label>
+            <label class="field"><span>Cognome *</span><input name="lastName" autocomplete="family-name" required /></label>
+          </div>
+          <label class="field"><span>Nome d'arte *</span><input name="artistName" autocomplete="nickname" required /></label>
+          <div class="field-row">
+            <label class="field"><span>WhatsApp *</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="333 123 4567" required /></label>
+            <label class="field"><span>Città *</span><input name="city" autocomplete="address-level2" required /></label>
+          </div>
+          <div class="field-row">
+            <label class="field"><span>Età</span><input name="age" type="number" inputmode="numeric" min="14" max="80" /></label>
+            <label class="field"><span>Instagram</span><input name="instagram" autocomplete="off" placeholder="@username" /></label>
+          </div>
+
+          <fieldset class="stage-fieldset">
+            <legend>A che punto sei?</legend>
+            <label><input type="radio" name="stage" value="Scrivo pezzi ma non sono ancora entrato in studio" required /><span>Scrivo pezzi ma non sono ancora entrato in studio</span></label>
+            <label><input type="radio" name="stage" value="Ho iniziato a registrare i miei pezzi" /><span>Ho iniziato a registrare i miei pezzi</span></label>
+            <label><input type="radio" name="stage" value="Ho già pubblicato della musica" /><span>Ho già pubblicato della musica</span></label>
+            <label><input type="radio" name="stage" value="Sto costruendo un progetto" /><span>Sto costruendo un progetto</span></label>
+          </fieldset>
+
+          <div class="material-choice">
+            <label class="upload-box" for="songFile">
+              <input id="songFile" name="songFile" type="file" accept=".mp3,.m4a,.wav,audio/mpeg,audio/mp4,audio/wav" />
+              <span class="upload-icon" aria-hidden="true">＋</span>
+              <strong>Carica il brano</strong>
+              <small>MP3, M4A o WAV · max 200 MB</small>
+              <em id="fileName">Nessun file selezionato</em>
+            </label>
+            <div class="or"><span>oppure</span></div>
+            <label class="field"><span>Link al brano</span><input name="songUrl" type="url" inputmode="url" placeholder="SoundCloud, Drive, YouTube…" /></label>
+          </div>
+
+          <label class="field textarea-field"><span>C'è qualcosa che vuoi farci sapere?</span><textarea name="developmentGoal" rows="3" placeholder="Facoltativo"></textarea></label>
+
+          <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <label class="consent"><input type="checkbox" name="consentPrivacy" required /><span>Acconsento al trattamento dei dati inviati per la valutazione della candidatura e per essere ricontattato da CHAMP. *</span></label>
+          <label class="consent"><input type="checkbox" name="consentContact" /><span>Acconsento a essere ricontattato anche per aggiornamenti relativi a CHAMP.</span></label>
+
+          <button class="btn btn-primary submit-btn" type="submit">Invia il tuo brano <span aria-hidden="true">↗</span></button>
+          <div class="form-progress" id="formProgress" role="status" aria-live="polite"></div>
+          <p class="form-note">Nessun pagamento in questa fase. Prima ascoltiamo il materiale.</p>
+        </form>
+
+        <div class="success-panel" id="successPanel" hidden>
+          <p class="section-index">BRANO RICEVUTO</p>
+          <h2>Adesso lo ascoltiamo noi.</h2>
+          <p>Se vuoi raccontarci qualcosa in più sul progetto o mandarci altro materiale, puoi continuare direttamente su WhatsApp.</p>
+          <a class="btn btn-primary" id="whatsappAfterSubmit" href="#" target="_blank" rel="noopener">Continua su WhatsApp <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark" href="#top">CHAMP</a>
+    <p>Artist Development · © <span id="year"></span></p>
+  </footer>
+
+  <a class="sticky-cta js-open-form" href="#candidatura" aria-label="Invia il tuo brano">Invia il tuo brano <span aria-hidden="true">↗</span></a>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
