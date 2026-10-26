@@ -1,0 +1,4 @@
+{ "trap": 10, "name": "pwa-sw",
+  "description": "Original site registers a service worker that caches. In the mirror it must be neutralised and never conflict with MSW.",
+  "entry": "/index.html",
+  "checks": ["original SW neutralised", "no interception conflict with MSW"] }

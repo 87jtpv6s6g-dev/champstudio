@@ -1,0 +1,4 @@
+{ "trap": 1, "name": "double-prefix",
+  "description": "Site originally served under /app/sub/ with absolute paths and <base>. Mirror must live at a port root without doubling the prefix.",
+  "entry": "/app/sub/index.html",
+  "checks": ["no path contains /app/sub/app/sub", "style.css resolves and applies"] }

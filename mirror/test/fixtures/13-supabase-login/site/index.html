@@ -1,0 +1,12 @@
+<!doctype html><html><head></head><body>
+<form id="lf"><input id="e" name="email"><input id="p" type="password" name="password">
+<button type="submit">Login</button></form><div id="err"></div>
+<script>
+const EP="EXTERNAL/auth/v1/token?grant_type=password";
+document.getElementById("lf").addEventListener("submit",async(ev)=>{ev.preventDefault();
+ const r=await fetch(EP,{method:"POST",headers:{"content-type":"application/json","apikey":"anon"},
+   body:JSON.stringify({email:e.value,password:p.value})});
+ const j=await r.json().catch(()=>({}));
+ document.getElementById("err").textContent=j.error_description||j.msg||("status "+r.status);
+});
+</script></body></html>

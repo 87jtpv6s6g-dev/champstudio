@@ -1,0 +1,4 @@
+{ "trap": 14, "name": "next-image",
+  "description": "Server-side image optimiser endpoint /_next/image?url=&w=. Mirror must pre-generate the requested variants as static files.",
+  "entry": "/index.html",
+  "checks": ["/_next/image variant archived as static", "img renders from same origin"] }

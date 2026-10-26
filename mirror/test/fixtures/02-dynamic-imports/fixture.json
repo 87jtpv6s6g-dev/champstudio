@@ -1,0 +1,4 @@
+{ "trap": 2, "name": "dynamic-imports",
+  "description": "Bundle uses dynamic import() and a __vite__mapDeps-style dep array; the full module graph must be captured.",
+  "entry": "/index.html",
+  "checks": ["dynamically imported chunk is archived", "no chunk 404"] }

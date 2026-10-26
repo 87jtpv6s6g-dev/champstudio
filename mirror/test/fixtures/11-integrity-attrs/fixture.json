@@ -1,0 +1,4 @@
+{ "trap": 11, "name": "integrity-attrs",
+  "description": "Script/link carry Subresource Integrity hashes. After rewriting those files, the integrity attribute must be stripped or the browser blocks them.",
+  "entry": "/index.html",
+  "checks": ["rewritten assets have no integrity attr", "assets load"] }

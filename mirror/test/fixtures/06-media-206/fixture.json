@@ -1,0 +1,4 @@
+{ "trap": 6, "name": "media-206",
+  "description": "Audio/video delivered as partial 206 responses. Capture must re-fetch the whole body; serve must support Range.",
+  "entry": "/index.html",
+  "checks": ["clip.mp4 fully archived", "serve honours Range with 206"] }

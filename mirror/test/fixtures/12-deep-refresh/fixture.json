@@ -1,0 +1,5 @@
+{ "trap": 12, "name": "deep-refresh",
+  "description": "SPA with client routes. A direct refresh on /about must serve index.html (SPA fallback), not 404.",
+  "entry": "/index.html",
+  "routes": ["/", "/about"],
+  "checks": ["GET /about returns index.html shell", "missing file returns real 404"] }

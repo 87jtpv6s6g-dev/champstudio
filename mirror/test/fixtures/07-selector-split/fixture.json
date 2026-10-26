@@ -1,0 +1,4 @@
+{ "trap": 7, "name": "selector-split",
+  "description": "An accordion is detected via [data-acc] but the clickable element is an inner <button>. Detection selector and interaction selector must be the same field.",
+  "entry": "/index.html",
+  "checks": ["accordion open state discovered", "same selector used to detect and click"] }

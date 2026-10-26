@@ -1,0 +1,5 @@
+{ "trap": 15, "name": "lan-https-sw",
+  "description": "Service workers need a secure context; plain HTTP over LAN disables them. With --lan the replica must be HTTPS (mkcert) and the inline isolation script must work even if the SW never registers.",
+  "entry": "/index.html",
+  "secureContextRequired": true,
+  "checks": ["mirror served over HTTPS on LAN", "behaviour identical with SW off (isolation script)"] }

@@ -1,0 +1,5 @@
+{ "trap": 13, "name": "supabase-login",
+  "description": "Login posts to a Supabase-style auth endpoint on an external origin. Mock must return Supabase's native 400 invalid-credentials JSON so the site renders its own error; zero external calls.",
+  "entry": "/index.html",
+  "provider": "supabase",
+  "checks": ["login submit stays on-origin", "native 400 invalid_grant shape returned", "UI shows error"] }

@@ -1,0 +1,3 @@
+body{font-family:system-ui;color:rgb(20,20,20)}
+.tabs button.active{font-weight:700}
+@media(max-width:768px){header{background:rgb(240,240,240)}}

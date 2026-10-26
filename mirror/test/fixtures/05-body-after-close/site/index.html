@@ -1,0 +1,4 @@
+<!doctype html><html><head></head><body><div id="o"></div>
+<script>
+fetch("/data.json").then(async r=>{const t=await r.text();document.getElementById("o").textContent=t.length;});
+</script></body></html>

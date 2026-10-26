@@ -1,0 +1,4 @@
+{ "trap": 16, "name": "record-safe",
+  "description": "A login form with a password field. rrweb recording must not change rendering and must never persist the password value (maskInputOptions.password).",
+  "entry": "/index.html",
+  "checks": ["render identical with recording on", "no password value stored in sessions.db"] }

@@ -1,0 +1,4 @@
+{ "trap": 5, "name": "body-after-close",
+  "description": "Page fetches data.json and consumes the stream immediately (reader cancelled), so the body is gone by load. CDP Fetch must capture it at response time.",
+  "entry": "/index.html",
+  "checks": ["data.json body archived", "no 'body unavailable' error"] }

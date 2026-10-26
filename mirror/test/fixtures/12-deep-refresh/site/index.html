@@ -1,0 +1,6 @@
+<!doctype html><html><head></head><body><div id="app"></div>
+<script>
+function go(p){history.pushState({},"",p);render();}
+function render(){app.textContent=location.pathname==="/about"?"ABOUT":"HOME";}
+document.title="spa";render();window.go=go;
+</script></body></html>

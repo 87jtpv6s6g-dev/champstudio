@@ -1,0 +1,5 @@
+node_modules/
+dist/
+*.tsbuildinfo
+# per-replica output lives outside the repo by default
+out/

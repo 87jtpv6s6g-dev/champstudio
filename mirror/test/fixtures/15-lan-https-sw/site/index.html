@@ -1,0 +1,5 @@
+<!doctype html><html><head></head><body><h1 id="t">secure</h1>
+<script>
+if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}
+document.getElementById("t").dataset.secure=String(window.isSecureContext);
+</script></body></html>

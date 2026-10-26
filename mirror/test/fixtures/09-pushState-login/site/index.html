@@ -1,0 +1,7 @@
+<!doctype html><html><head></head><body>
+<button id="open">Sign in</button><div id="view"></div>
+<script>
+function render(){ if(location.pathname==="/login"){view.innerHTML='<form id="lf"><input name="email"><input type="password" name="pw"><button>Login</button></form>';} }
+document.getElementById("open").onclick=()=>{history.pushState({},"","/login");render();};
+window.onpopstate=render;render();
+</script></body></html>

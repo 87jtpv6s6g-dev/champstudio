@@ -1,0 +1,5 @@
+{ "trap": 3, "name": "css-not-applied",
+  "description": "Stylesheet served with a wrong MIME (text/plain). Browser drops it. Mirror must serve correct MIME so computed styles match.",
+  "entry": "/index.html",
+  "mimeOverride": { ".css": "text/plain" },
+  "checks": ["computed color of #t equals rgb(200,0,0)"] }

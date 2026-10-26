@@ -1,0 +1,4 @@
+{ "trap": 9, "name": "pushState-login",
+  "description": "Login screen reachable only via a button that calls history.pushState (no href). Explore must discover it.",
+  "entry": "/index.html",
+  "checks": ["/login state discovered from button", "login form present after click"] }

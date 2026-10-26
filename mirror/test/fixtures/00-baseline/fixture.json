@@ -1,0 +1,5 @@
+{ "trap": 0, "name": "baseline",
+  "description": "Healthy multi-route, multi-state site with a tab, a modal and a responsive breakpoint. Drives the pixel/aria/style/behaviour grid when everything works.",
+  "entry": "/index.html",
+  "routes": ["/", "/about"],
+  "checks": ["all routes mirrored", "tab + modal states reproduced", "768px breakpoint reproduced"] }

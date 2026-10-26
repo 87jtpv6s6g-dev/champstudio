@@ -1,0 +1,4 @@
+{ "trap": 4, "name": "antibot-script",
+  "description": "Page loads a /cdn-cgi/challenge-platform script and an analytics beacon pointing at an external origin. Both must be excluded by rule, never counted essential.",
+  "entry": "/index.html",
+  "checks": ["challenge-platform script excluded", "analytics beacon excluded", "zero external hits"] }

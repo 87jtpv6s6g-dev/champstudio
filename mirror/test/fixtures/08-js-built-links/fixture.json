@@ -1,0 +1,4 @@
+{ "trap": 8, "name": "js-built-links",
+  "description": "A link and a window.open target to the original domain are built at runtime in JS. Isolation must rewrite them to the mirror origin.",
+  "entry": "/index.html",
+  "checks": ["runtime anchor href is same-origin", "no external hits on click"] }
