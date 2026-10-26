@@ -185,7 +185,8 @@ function replayPage(id: string): string {
     const el = document.getElementById('player');
     el.innerHTML = '';
     if(events.length < 2){ el.innerHTML = '<div class="msg">Sessione senza eventi sufficienti per il replay.</div>'; return; }
-    new rrwebPlayer({ target: el, props: { events: events, width: 1000, height: 600, autoPlay: true, showController: true } });
+    var Player = (window.rrwebPlayer && (window.rrwebPlayer.default || window.rrwebPlayer.Player)) || window.rrwebPlayer;
+    new Player({ target: el, props: { events: events, width: 1000, height: 600, autoPlay: true, showController: true } });
   }catch(e){ document.getElementById('player').innerHTML = '<div class="msg">Errore nel caricamento: '+e.message+'</div>'; }
 })();
 </script>

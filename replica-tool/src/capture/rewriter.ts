@@ -136,9 +136,9 @@ export function rewriteHtml(
 ): string {
   const doc = parseHtml(html) as unknown as P5;
 
-  let headEl: P5 | null = null;
-  let htmlEl: P5 | null = null;
-  let bodyEl: P5 | null = null;
+  let headEl: any = null;
+  let htmlEl: any = null;
+  let bodyEl: any = null;
 
   const removeFromParent = (node: P5) => {
     const p = node.parentNode;
@@ -210,7 +210,7 @@ export function rewriteHtml(
   // iniezione: manifest + isolamento per primi nel <head>; rrweb + record dopo
   const target = headEl || htmlEl || doc;
   if (target) {
-    if (htmlEl && htmlEl.attrs && !htmlEl.attrs.some((a) => a.name === INJECT_MARKER)) {
+    if (htmlEl && htmlEl.attrs && !htmlEl.attrs.some((a: any) => a.name === INJECT_MARKER)) {
       htmlEl.attrs.push({ name: INJECT_MARKER, value: "1" });
     }
     const tags = headInjectionTags();

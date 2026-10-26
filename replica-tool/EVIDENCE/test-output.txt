@@ -1,0 +1,35 @@
+# Output di pnpm test:all
+# Data: 2026-10-26T11:59:39.701Z
+# Node: v22.22.0
+# Data dir temporanea: /tmp/replica-tool-test-HOdtNA
+======================================================================
+
+
+ RUN  v5.0.5 /home/user/champstudio/replica-tool
+
+stdout | test/e2e/full-flow.test.ts > flusso completo pannello → replica → sessione > replica il sito di prova, è autonoma e registra la sessione dal telefono
+
+──────── ESITO MISURATO ────────
+verdetto build ............. pronta
+richieste fallite .......... 0
+errori JS nuovi ............ 0
+diff screenshot desktop .... 0%
+diff screenshot mobile ..... 0%
+spy origine (richieste) .... 0
+spy CDN esterna (richieste)  0
+errori JS nella replica .... 0
+sessione registrata ........ mvp7fextq6sjbo2h (27 eventi)
+password nel database ...... assente ✅
+────────────────────────────────
+
+
+ ✓ test/e2e/full-flow.test.ts > flusso completo pannello → replica → sessione > replica il sito di prova, è autonoma e registra la sessione dal telefono 14309ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  11:59:40
+   Duration  15.63s (tests 95%, import 4%, transform 1%)
+
+
+======================================================================
+# Esito: SUCCESSO (exit 0)

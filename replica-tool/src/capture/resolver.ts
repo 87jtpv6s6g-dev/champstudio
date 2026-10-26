@@ -10,7 +10,7 @@ import { tryUrl, isHttp } from "./urls.js";
 
 let lexerReady: Promise<void> | null = null;
 export async function ensureLexer(): Promise<void> {
-  if (!lexerReady) lexerReady = init;
+  if (!lexerReady) lexerReady = init as unknown as Promise<void>;
   await lexerReady;
 }
 
@@ -32,7 +32,7 @@ export async function extractFromJs(code: string, baseUrl: string): Promise<stri
   try {
     await ensureLexer();
     const [imports] = lexJs(code);
-    for (const imp of imports) {
+    for (const imp of imports as any[]) {
       if (imp.n) specs.push(imp.n); // import statico/dinamico con specifier stringa
     }
   } catch {
