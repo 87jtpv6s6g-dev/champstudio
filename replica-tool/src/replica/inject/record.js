@@ -7,6 +7,8 @@
   "use strict";
   try {
     if (!window.rrweb || typeof window.rrweb.record !== "function") return;
+    // La verifica automatica carica la replica senza registrare la sessione.
+    if (window.__REPLICA_NOREC__) return;
     var R = window.__REPLICA__ || { id: "" };
 
     // Session id stabile per l'intera navigazione (persistito nella scheda).

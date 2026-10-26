@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Replica Tool — Pannello</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#161922; --panel2:#1d212c; --line:#262b38;
+    --text:#e7e9ee; --muted:#9aa3b2; --accent:#4a9eff; --accent2:#7cc4ff;
+    --ok:#3ecf8e; --warn:#e0a84e; --err:#ef5a6a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5}
+  header{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px}
+  header h1{font-size:18px;margin:0;font-weight:650}
+  header .tag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:2px 8px;border-radius:999px}
+  main{max-width:1060px;margin:0 auto;padding:22px;display:grid;gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .card h2{font-size:14px;margin:0 0 12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  input[type=text]{flex:1;min-width:220px;background:var(--panel2);border:1px solid var(--line);
+    color:var(--text);padding:10px 12px;border-radius:8px;font-size:14px}
+  input[type=text]:focus{outline:none;border-color:var(--accent)}
+  button{background:var(--accent);color:#061018;border:0;padding:10px 16px;border-radius:8px;
+    font-weight:600;cursor:pointer;font-size:14px}
+  button.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
+  button:hover{filter:brightness(1.08)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);
+    padding:5px 6px 5px 12px;border-radius:999px;font-size:13px}
+  .chip button{background:transparent;color:var(--muted);padding:2px 8px;border-radius:999px;font-weight:700}
+  .chip button:hover{color:var(--err)}
+  .muted{color:var(--muted)}
+  .empty{color:var(--muted);font-size:14px;padding:6px 0}
+  .build{border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px;background:var(--panel2)}
+  .build .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .build .url{font-weight:600;word-break:break-all}
+  .badge{font-size:12px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);font-weight:600}
+  .badge.status{color:var(--accent2)}
+  .badge.pronta{background:rgba(62,207,142,.15);color:var(--ok);border-color:transparent}
+  .badge.da-rivedere{background:rgba(224,168,78,.15);color:var(--warn);border-color:transparent}
+  .badge.fallita{background:rgba(239,90,106,.15);color:var(--err);border-color:transparent}
+  .links{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;align-items:flex-start}
+  .links a{color:var(--accent2);text-decoration:none;word-break:break-all}
+  .links a:hover{text-decoration:underline}
+  .linkcol{display:flex;flex-direction:column;gap:4px;font-size:13px}
+  .qr img{width:150px;height:150px;background:#fff;border-radius:8px;padding:6px}
+  .stats{font-size:13px;color:var(--muted);margin-top:8px}
+  .verify{margin-top:12px;font-size:13px}
+  .verify ul{margin:6px 0;padding-left:18px}
+  .verify-images{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .verify-images figure{margin:0}
+  .verify-images img{max-width:220px;border:1px solid var(--line);border-radius:6px;display:block}
+  .verify-images figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+  #progress{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;
+    background:#0b0d12;border:1px solid var(--line);border-radius:8px;padding:10px;
+    max-height:220px;overflow:auto;white-space:pre-wrap}
+  #progress .l-success{color:var(--ok)} #progress .l-warn{color:var(--warn)} #progress .l-error{color:var(--err)}
+  .session{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .session:last-child{border-bottom:0}
+  .live-badge{font-size:11px;background:var(--err);color:#fff;padding:2px 8px;border-radius:999px;font-weight:700}
+  .session a{color:var(--accent2);text-decoration:none}
+  .session .meta{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Replica Tool</h1>
+  <span class="tag">pannello locale · v1</span>
+  <span class="tag" id="net-tag">rete: …</span>
+</header>
+<main>
+  <section class="card">
+    <h2>Domini consentiti</h2>
+    <div class="row">
+      <input type="text" id="domain-input" placeholder="es. www.miosito.it  oppure  https://miosito.it" />
+      <button id="domain-add">Aggiungi</button>
+    </div>
+    <div class="chips" id="domains-list"></div>
+  </section>
+
+  <section class="card">
+    <h2>Replica un sito</h2>
+    <div class="row">
+      <input type="text" id="url-input" placeholder="Incolla l'URL del tuo sito (https://…)" />
+      <button id="replicate-btn">Replica</button>
+    </div>
+    <p class="muted" id="replicate-msg" style="margin:10px 0 0"></p>
+  </section>
+
+  <section class="card">
+    <h2>Avanzamento</h2>
+    <div id="progress" aria-live="polite"></div>
+  </section>
+
+  <section class="card">
+    <h2>Repliche</h2>
+    <div id="builds"><div class="empty">Nessuna replica ancora.</div></div>
+  </section>
+
+  <section class="card">
+    <h2>Sessioni</h2>
+    <div id="sessions"><div class="empty">Nessuna sessione registrata.</div></div>
+  </section>
+</main>
+<script src="/panel.js"></script>
+</body>
+</html>

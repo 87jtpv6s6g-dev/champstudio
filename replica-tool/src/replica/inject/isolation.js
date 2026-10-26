@@ -186,6 +186,126 @@
       }
     } catch (e) {}
 
+    /* ---------- risorse costruite in JS (src/href esterni) ---------- */
+    // Mappa un URL assoluto esterno al suo equivalente locale catturato (/_ext/<host>/..),
+    // oppure null se esterno e non catturato (da neutralizzare per non uscire in rete).
+    function hostSeg(u) {
+      var h = u.hostname + (u.port ? "_" + u.port : "");
+      return h.replace(/[^a-z0-9._-]/gi, "_");
+    }
+    function mapAbsolute(abs) {
+      try {
+        var u = new URL(abs, LOC.href);
+        if (u.protocol !== "http:" && u.protocol !== "https:") return abs;
+        if (u.host === LOC.host) return u.pathname + u.search + u.hash;
+        var local = "/_ext/" + hostSeg(u) + u.pathname;
+        if (ASSETS.has(local)) return local;
+        return null; // esterno non catturato
+      } catch (e) {
+        return abs;
+      }
+    }
+    function mapOne(url) {
+      if (!url || !/^https?:\/\//i.test(url)) return url; // relativo/interno: invariato
+      var m = mapAbsolute(url);
+      if (m === null) {
+        note("resource", url);
+        return "data:,"; // nessuna richiesta di rete
+      }
+      return m;
+    }
+    function rewriteMarkup(html) {
+      try {
+        html = String(html).replace(
+          /\b(src|href|poster)\s*=\s*(["'])(https?:\/\/[^"'>]+)\2/gi,
+          function (_m, attr, q, url) {
+            return attr + "=" + q + mapOne(url) + q;
+          },
+        );
+        html = html.replace(/\bsrcset\s*=\s*(["'])([^"'>]+)\1/gi, function (_m, q, val) {
+          var nv = val
+            .split(",")
+            .map(function (part) {
+              var bits = part.trim().split(/\s+/);
+              if (bits[0] && /^https?:\/\//i.test(bits[0])) bits[0] = mapOne(bits[0]);
+              return bits.join(" ");
+            })
+            .filter(Boolean)
+            .join(", ");
+          return "srcset=" + q + nv + q;
+        });
+      } catch (e) {}
+      return html;
+    }
+
+    function hookStringProp(proto, prop) {
+      try {
+        var d = Object.getOwnPropertyDescriptor(proto, prop);
+        if (!d || !d.set) return;
+        Object.defineProperty(proto, prop, {
+          configurable: true,
+          enumerable: d.enumerable,
+          get: function () {
+            return d.get.call(this);
+          },
+          set: function (v) {
+            d.set.call(this, rewriteMarkup(v));
+          },
+        });
+      } catch (e) {}
+    }
+    hookStringProp(Element.prototype, "innerHTML");
+    hookStringProp(Element.prototype, "outerHTML");
+    try {
+      var _iah = Element.prototype.insertAdjacentHTML;
+      Element.prototype.insertAdjacentHTML = function (pos, html) {
+        return _iah.call(this, pos, rewriteMarkup(html));
+      };
+    } catch (e) {}
+
+    // setAttribute e proprietà .src/.href per elementi creati a mano
+    try {
+      var _setAttr = Element.prototype.setAttribute;
+      Element.prototype.setAttribute = function (name, value) {
+        var n = (name || "").toLowerCase();
+        if ((n === "src" || n === "href" || n === "poster") && typeof value === "string") {
+          value = mapOne(value);
+        } else if (n === "srcset" && typeof value === "string") {
+          value = value
+            .split(",")
+            .map(function (p) {
+              var b = p.trim().split(/\s+/);
+              if (b[0] && /^https?:\/\//i.test(b[0])) b[0] = mapOne(b[0]);
+              return b.join(" ");
+            })
+            .join(", ");
+        }
+        return _setAttr.call(this, name, value);
+      };
+    } catch (e) {}
+    ["HTMLImageElement", "HTMLScriptElement", "HTMLMediaElement", "HTMLSourceElement", "HTMLIFrameElement"].forEach(
+      function (ctor) {
+        try {
+          if (window[ctor]) {
+            var proto = window[ctor].prototype;
+            var d = Object.getOwnPropertyDescriptor(proto, "src");
+            if (d && d.set) {
+              Object.defineProperty(proto, "src", {
+                configurable: true,
+                enumerable: d.enumerable,
+                get: function () {
+                  return d.get.call(this);
+                },
+                set: function (v) {
+                  d.set.call(this, typeof v === "string" ? mapOne(v) : v);
+                },
+              });
+            }
+          }
+        } catch (e) {}
+      },
+    );
+
     /* ---------- link e navigazioni esterne ---------- */
     document.addEventListener(
       "click",
